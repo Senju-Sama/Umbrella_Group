@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Pathfinders — Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
       --bg:#1E1E2F; /* Dark Navy */
@@ -123,8 +124,9 @@
     border-right: 2px solid #000;
     font-family: monospace;
     font-size: 1.5rem;
-    width: 0;
+    width: auto;
     animation: typing 5s steps(20, end) infinite, blink 0.7s step-end infinite;
+    letter-spacing: 0;
 }
 
 @keyframes typing {
@@ -320,6 +322,9 @@
       .media-wrap{flex-direction:column}
       .side-column{width:100%}
     }
+    /* Footer */
+
+
   </style>
 </head>
 <body>
@@ -473,12 +478,55 @@
     
     </section>
 
-    <footer>
-      <div>Contact: pathfinders@maincampus.edu<br>Main Campus</div>
-      <div>Copyright reversed by The Pathfinders</div>
-    </footer>
-  </main>
+    <!-- FOOTER -->
+    <footer id="footer" class="mt-30 bg-[url('/rectangle-12.png')] bg-cover bg-center text-black">
+  <div class="bg-[#020318] w-full bg-opacity-75 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 w-full">
+      <!-- Address -->
+      <div class="flex items-start space-x-4">
+        <div class="w-8 h-6 flex items-center justify-center">
+  <img src="Clg imh\Map Pin PNG.png" alt="Map Pin" class="w-full h-full object-contain" />
+</div>
+        <address class="not-italic text-white">RRSDCE Main Campus</address>
+      </div>
+      <!-- Social Icons -->
+      <div class="flex items-center space-x-4 justify-center md:justify-center text-white">
+  <!-- Instagram -->
+  <a href="https://instagram.com" target="_blank" class="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm4.75-.75a.75.75 0 1 1 0 1.5a.75.75 0 0 1 0-1.5z"/>
+    </svg>
+  </a>
 
+  <!-- GitHub -->
+  <a href="https://github.com" target="_blank" class="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center hover:bg-gray-800 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+      <path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.5-3.9-1.5c-.5-1.2-1.2-1.5-1.2-1.5c-1-.7.1-.7.1-.7c1.1.1 1.7 1.1 1.7 1.1c1 .1 1.6-.7 1.9-1c-.8-.1-1.6-.4-2.2-.9c-.6-.5-.9-1.2-.9-2c0-1.5.5-2.6 1.4-3.5c-.1-.3-.6-1.6.1-3.3c0 0 1.2-.4 3.5 1.3c1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.7 3.5-1.3 3.5-1.3c.7 1.7.2 3 .1 3.3c.9.9 1.4 2 1.4 3.5c0 .8-.3 1.5-.9 2c-.6.5-1.4.8-2.2.9c.3.3.6.8.6 1.6v2.4c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12A11.5 11.5 0 0 0 12 .5z"/>
+    </svg>
+  </a>
+
+  <!-- Twitter -->
+  <a href="https://twitter.com" target="_blank" class="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center hover:bg-blue-500 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+      <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.37a8.6 8.6 0 0 1-2.72 1.04a4.28 4.28 0 0 0-7.3 3.9a12.14 12.14 0 0 1-8.8-4.46a4.28 4.28 0 0 0 1.32 5.7a4.2 4.2 0 0 1-1.94-.54v.05a4.28 4.28 0 0 0 3.43 4.2a4.3 4.3 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.97a8.6 8.6 0 0 1-5.33 1.84a8.7 8.7 0 0 1-1.02-.06a12.14 12.14 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2c0-.19-.01-.39-.02-.58A8.7 8.7 0 0 0 22.46 6z"/>
+    </svg>
+  </a>
+</div>
+      <!-- Copyright -->
+      <div class="flex items-center justify-end text-right text-white">
+        <p class="text-lg">
+          Copyright reserved by<br />
+          Our Club
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </main>
+<style>
+ 
+</style>
   <script>
     const readMoreLink = document.getElementById('readMoreLink');
     const readLessLink = document.getElementById('readLessLink');
