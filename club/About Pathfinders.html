@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://127.0.0.1:5500/final.about.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Pathfinders</title>
+<link rel="stylesheet" href="./About Pathfinders_files/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f1220;
+    color: #eaeaf2;
+  }
+
+  section {
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  h2, h3 {
+    color: #f9a826;
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Card / Box styling */
+  .box {
+    background: #161a2a;
+    border: 1px solid #23273b;
+    border-radius: 14px;
+    padding: 18px;
+    transition: all 0.3s ease;
+  }
+
+  .box:hover {
+    border-color: #f9a826;
+    box-shadow: 0 0 20px rgba(249, 168, 38, 0.6);
+    transform: translateY(-5px);
+  }
+
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  /* Social Media */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .social-icons a {
+    color: #eaeaf2;
+    font-size: 1.8rem;
+    transition: 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #f9a826;
+    transform: scale(1.2);
+  }
+
+  /* FAQ */
+  .faq-item {
+    background: #161a2a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #f9a826;
+    box-shadow: 0 0 15px rgba(249, 168, 38, 0.4);
+  }
+
+  .faq-answer {
+    display: none;
+    margin-top: 8px;
+    opacity: 0.9;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Introduction -->
+<section class="fade-in">
+  <div style="text-align:center; margin-bottom:28px;">
+    <h2>About Pathfinders</h2>
+    <p> • Tech • Think • Talk</p>
+  </div>
+
+  <div style="text-align:center; max-width:900px; margin:0 auto 34px; line-height:1.75; font-size:1.08rem;">
+    <p>Welcome to <strong style="color:#f9a826;">The Pathfinders</strong> — a community where curiosity meets code and creativity.</p>
+    <p>We’re not just about coding; we’re about <em>thinking, expressing, and growing together</em>. From workshops, hackathons, and coding challenges to storytelling and personality development, we believe in learning by doing, sharing knowledge, and inspiring one another.</p>
+  </div>
+</section>
+
+<!-- Key Milestones -->
+<section class="fade-in">
+  <h3>Key Milestones &amp; Detailed Thought</h3>
+  <div class="grid">
+    <div class="box">
+      <h4>🚀 Founded</h4>
+      <p>Started in 2025 with a vision to blend coding, creativity, and communication.</p>
+    </div>
+    <div class="box">
+      <h4>🏆 Achievements</h4>
+      <p>Hosted 10+ coding challenges, 5 hackathons, and 3 public speaking events in our first year.</p>
+    </div>
+    <div class="box">
+      <h4>💡 Philosophy</h4>
+      <p>Learn. Share. Inspire. We believe in a hands-on, collaborative approach to skill-building.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Detailed Description -->
+<section class="fade-in">
+  <h3>Detailed Description</h3>
+  <div class="grid">
+    <div class="box">
+      <h4>💻 Code Arena</h4>
+      <p>A space for coding enthusiasts to practice, collaborate, and innovate. We operate through weekly coding sessions, project sprints, and mentorship programs.</p>
+    </div>
+    <div class="box">
+      <h4>📖 Storytelling</h4>
+      <p>Transform ideas into powerful narratives through speaking sessions, demos, and creative showcases that inspire others.</p>
+    </div>
+    <div class="box">
+      <h4>🌱 Personality Development</h4>
+      <p>Boost confidence and leadership with workshops, peer mentoring, and real-world communication practice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="fade-in">
+  <h3>FAQ</h3>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>Who can join The Pathfinders?</strong>
+    <div class="faq-answer">Any student with a passion for coding, creativity, or communication can join us.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>Do I need prior experience?</strong>
+    <div class="faq-answer">Not at all! We welcome beginners and experts alike.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>Are events free?</strong>
+    <div class="faq-answer">Most events are free for our members; some special workshops may have minimal fees.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>How often do you meet?</strong>
+    <div class="faq-answer">We meet every weekend for interactive sessions and project collaborations.</div>
+  </div>
+</section>
+
+<!-- Social Media -->
+<section class="fade-in" style="text-align:center;">
+  <h3>Connect with Us</h3>
+  <div class="social-icons">
+    <a href="http://127.0.0.1:5500/final.about.html#"><i class="fab fa-facebook"></i></a>
+    <a href="http://127.0.0.1:5500/final.about.html#"><i class="fab fa-instagram"></i></a>
+    <a href="http://127.0.0.1:5500/final.about.html#"><i class="fab fa-twitter"></i></a>
+    <a href="http://127.0.0.1:5500/final.about.html#"><i class="fab fa-linkedin"></i></a>
+    <a href="http://127.0.0.1:5500/final.about.html#"><i class="fab fa-github"></i></a>
+  </div>
+</section>
+
+<script>
+  function toggleFAQ(element) {
+    const answer = element.querySelector('.faq-answer');
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+    } else {
+      answer.style.display = "block";
+    }
+  }
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
