@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meet Our Team</title>
+<style>
+  /* ===== Theme ===== */
+  :root{
+    --bg:#1E1E2F;          /* Dark Navy */
+    --card:#2D2D44;        /* Dark Gray Card */
+    --text:#E5E5E5;        /* Light text */
+    --muted:#A9A9B3;       /* Subtext */
+    --accent:#FCA311;      /* Orange */
+  }
+
+  /* ===== Base ===== */
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  .wrap{
+    max-width:1120px;
+    margin:auto;
+    padding:56px 20px 80px;
+    text-align:center;
+  }
+  h2{
+    font-size:2.6rem;
+    margin:0 0 34px;
+    color:var(--accent);
+    letter-spacing:.5px;
+    text-shadow:0 0 18px rgba(252,163,17,.25);
+    animation:fadeIn .8s ease both;
+  }
+
+  /* ===== Top Leaders (2 boxes) ===== */
+  .leaders{
+    display:flex; gap:36px; justify-content:center; flex-wrap:wrap;
+    margin-bottom:26px;
+  }
+  .leader, .member{
+    background:var(--card);
+    border:2px solid transparent;
+    border-radius:18px;
+    padding:28px;
+    text-align:center;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    box-shadow:0 8px 28px rgba(0,0,0,.28);
+    animation:slideUp .7s ease both;
+  }
+  .leader{ width:340px; padding:34px }          /* small increment in size */
+  .member{ padding:26px }                        /* slightly bigger than before */
+
+  .leader:hover, .member:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent);
+    box-shadow:0 0 26px rgba(252,163,17,.55), 0 14px 40px rgba(0,0,0,.35);
+  }
+
+  /* ===== Avatar (oval with glowing ring) ===== */
+  .avatar{
+    width:150px; height:170px;                   /* oval size */
+    margin:0 auto 16px;
+    border-radius:50% / 40%;                     /* oval shape */
+    overflow:hidden; position:relative;
+    border:5px solid var(--accent);
+    box-shadow:0 0 0 6px rgba(252,163,17,.2);    /* outer ring glow */
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  .avatar img{
+    width:100%; height:100%; object-fit:cover;
+    display:block; filter:saturate(1.02) contrast(1.02);
+    background:linear-gradient(135deg,#A9A9B3, var(--card));
+  }
+
+  /* ===== Text bits ===== */
+  .name{
+    margin:.2rem 0 .25rem; font-size:1.25rem; font-weight:800; letter-spacing:.2px;
+  }
+  .role{
+    margin:0 0 .7rem; color:var(--muted); font-weight:600;
+  }
+  .bio{
+    margin:.25rem auto 1rem; max-width:36ch; color:var(--muted); line-height:1.35;
+    font-size:.95rem;
+  }
+
+  /* ===== Social bar (inline SVG icons) ===== */
+  .social{
+    display:flex; gap:12px; justify-content:center;
+    background:var(--accent); border-radius:10px;
+    padding:10px 12px; width:fit-content; margin:10px auto 0;
+    box-shadow:0 8px 20px rgba(252,163,17,.35);
+  }
+  .social a{ display:inline-flex; width:22px; height:22px; opacity:.95 }
+  .social a:hover{ transform:translateY(-2px) }
+  .social svg{ width:100%; height:100%; fill:#0F0F14 } /* dark ink on orange */
+
+  /* ===== Divider ===== */
+  .divider{
+    height:4px;
+    background:var(--accent);
+    max-width:1120px;
+    margin:28px auto 44px;
+    border-radius:999px;
+    box-shadow:0 0 18px rgba(252,163,17,.8);
+    position:relative; overflow:hidden;
+  }
+  /* flowing light */
+  .divider::after{
+    content:""; position:absolute; left:-20%; top:0; bottom:0; width:20%;
+    background:linear-gradient(90deg, transparent, #fff8, transparent);
+    animation:shine 2.4s linear infinite;
+  }
+
+  /* ===== Team grid (9 cards) ===== */
+  .team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); /* slightly larger cards */
+    gap:26px;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fadeIn{from{opacity:0;transform:scale(.98)} to{opacity:1;transform:scale(1)}}
+  @keyframes slideUp{from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse{
+    0%,100%{ box-shadow:0 0 0 6px rgba(252,163,17,.20)}
+    50%{    box-shadow:0 0 0 10px rgba(252,163,17,.45)}
+  }
+  @keyframes shine{0%{left:-25%} 100%{left:105%}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <h2>Meet Our Team</h2>
+
+    <!-- ===== Leaders ===== -->
+    <section class="leaders">
+      <article class="leader">
+        <div class="avatar">
+          <img src="images/principal.jpg" alt="Principal">
+        </div>
+        <div class="name">Dr. Anil Sharma</div>
+        <div class="role">Principal</div>
+        <p class="bio">Leads strategy and academics with a focus on innovation and student success.</p>
+        <div class="social">
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1A4 4 0 0 0 12 8.6c0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.6 0-1.2-.2-1.7-.5v.1c0 2 1.5 3.6 3.3 4-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3a8.1 8.1 0 0 1-5 1.7H3a11.5 11.5 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.4-1.3 2-2.1z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1C16.6 1 15.3 1 14 1c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5c3 0 3.4 0 4.6.1 1.1.1 1.9.2 2.7.6.8.3 1.5.8 2.1 1.4.6.6 1.1 1.3 1.4 2.1.4.8.5 1.6.6 2.7.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.9-.6 2.7a5.8 5.8 0 0 1-3.5 3.5c-.8.4-1.6.5-2.7.6-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.9-.2-2.7-.6A5.8 5.8 0 0 1 1.9 20c-.4-.8-.5-1.6-.6-2.7C1.2 16.1 1.2 15.7 1.2 12s0-3.4.1-4.6c.1-1.1.2-1.9.6-2.7.3-.8.8-1.5 1.4-2.1C4 1.9 4.7 1.4 5.5 1.1c.8-.4 1.6-.5 2.7-.6C9.4 0 9.8 0 12 0z"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="leader">
+        <div class="avatar">
+          <img src="images/vice_principal.jpg" alt="Vice Principal">
+        </div>
+        <div class="name">Prof. Sunita Mehta</div>
+        <div class="role">Vice Principal</div>
+        <p class="bio">Operational excellence champion, mentoring teams and driving outcomes.</p>
+        <div class="social">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1A4 4 0 0 0 12 8.6c0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.6 0-1.2-.2-1.7-.5v.1c0 2 1.5 3.6 3.3 4-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3a8.1 8.1 0 0 1-5 1.7H3a11.5 11.5 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.4-1.3 2-2.1z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1C16.6 1 15.3 1 14 1c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5c3 0 3.4 0 4.6.1 1.1.1 1.9.2 2.7.6.8.3 1.5.8 2.1 1.4.6.6 1.1 1.3 1.4 2.1.4.8.5 1.6.6 2.7.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.9-.6 2.7a5.8 5.8 0 0 1-3.5 3.5c-.8.4-1.6.5-2.7.6-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.9-.2-2.7-.6A5.8 5.8 0 0 1 1.9 20c-.4-.8-.5-1.6-.6-2.7C1.2 16.1 1.2 15.7 1.2 12s0-3.4.1-4.6c.1-1.1.2-1.9.6-2.7.3-.8.8-1.5 1.4-2.1C4 1.9 4.7 1.4 5.5 1.1c.8-.4 1.6-.5 2.7-.6C9.4 0 9.8 0 12 0z"/></svg></a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== Divider ===== -->
+    <div class="divider"></div>
+
+    <!-- ===== Team (9 boxes) ===== -->
+    <section class="team">
+      <!-- 1 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member1.jpg" alt="Deeksha Sharma"></div>
+        <div class="name">Deeksha Sharma</div>
+        <div class="role">Web Developer</div>
+        <p class="bio">Loves performant UIs, clean CSS, and pixel-perfect components.</p>
+        <div class="social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1A4 4 0 0 0 12 8.6c0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.6 0-1.2-.2-1.7-.5v.1c0 2 1.5 3.6 3.3 4-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3a8.1 8.1 0 0 1-5 1.7H3a11.5 11.5 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.4-1.3 2-2.1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5c3 0 3.4 0 4.6.1 1.1.1 1.9.2 2.7.6.8.3 1.5.8 2.1 1.4.6.6 1.1 1.3 1.4 2.1.4.8.5 1.6.6 2.7.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.9-.6 2.7a5.8 5.8 0 0 1-3.5 3.5c-.8.4-1.6.5-2.7.6-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.9-.2-2.7-.6A5.8 5.8 0 0 1 1.9 20c-.4-.8-.5-1.6-.6-2.7C1.2 16.1 1.2 15.7 1.2 12s0-3.4.1-4.6c.1-1.1.2-1.9.6-2.7.3-.8.8-1.5 1.4-2.1C4 1.9 4.7 1.4 5.5 1.1c.8-.4 1.6-.5 2.7-.6C9.4 0 9.8 0 12 0z"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member2.jpg" alt="Rahul Kumar"></div>
+        <div class="name">Rahul Kumar</div>
+        <div class="role">UI/UX Designer</div>
+        <p class="bio">Designs intuitive journeys backed by quick user testing.</p>
+        <div class="social">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1C16.6 1 15.3 1 14 1c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5c3 0 3.4 0 4.6.1 1.1.1 1.9.2 2.7.6.8.3 1.5.8 2.1 1.4.6.6 1.1 1.3 1.4 2.1.4.8.5 1.6.6 2.7.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.9-.6 2.7a5.8 5.8 0 0 1-3.5 3.5c-.8.4-1.6.5-2.7.6-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.9-.2-2.7-.6A5.8 5.8 0 0 1 1.9 20c-.4-.8-.5-1.6-.6-2.7C1.2 16.1 1.2 15.7 1.2 12s0-3.4.1-4.6c.1-1.1.2-1.9.6-2.7.3-.8.8-1.5 1.4-2.1C4 1.9 4.7 1.4 5.5 1.1c.8-.4 1.6-.5 2.7-.6C9.4 0 9.8 0 12 0z"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member3.jpg" alt="Priya Singh"></div>
+        <div class="name">Priya Singh</div>
+        <div class="role">Backend Engineer</div>
+        <p class="bio">APIs, databases, and reliability obsessed.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1A4 4 0 0 0 12 8.6c0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.6 0-1.2-.2-1.7-.5v.1c0 2 1.5 3.6 3.3 4-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3a8.1 8.1 0 0 1-5 1.7H3a11.5 11.5 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.4-1.3 2-2.1z"/></svg></a></div>
+      </article>
+
+      <!-- 4 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member4.jpg" alt="Amit Verma"></div>
+        <div class="name">Amit Verma</div>
+        <div class="role">Data Scientist</div>
+        <p class="bio">Turns messy data into crisp insights and dashboards.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1C16.6 1 15.3 1 14 1c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a></div>
+      </article>
+
+      <!-- 5 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member5.jpg" alt="Neha Gupta"></div>
+        <div class="name">Neha Gupta</div>
+        <div class="role">Frontend Developer</div>
+        <p class="bio">Components library enjoyer; accessibility first.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5c3 0 3.4 0 4.6.1 1.1.1 1.9.2 2.7.6.8.3 1.5.8 2.1 1.4.6.6 1.1 1.3 1.4 2.1.4.8.5 1.6.6 2.7.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.9-.6 2.7a5.8 5.8 0 0 1-3.5 3.5c-.8.4-1.6.5-2.7.6-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.9-.2-2.7-.6A5.8 5.8 0 0 1 1.9 20c-.4-.8-.5-1.6-.6-2.7C1.2 16.1 1.2 15.7 1.2 12s0-3.4.1-4.6c.1-1.1.2-1.9.6-2.7.3-.8.8-1.5 1.4-2.1C4 1.9 4.7 1.4 5.5 1.1c.8-.4 1.6-.5 2.7-.6C9.4 0 9.8 0 12 0z"/></svg></a></div>
+      </article>
+
+      <!-- 6 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member6.jpg" alt="Vikas Mehta"></div>
+        <div class="name">Vikas Mehta</div>
+        <div class="role">Project Manager</div>
+        <p class="bio">Keeps sprints on track and stakeholders smiling.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1A4 4 0 0 0 12 8.6c0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.6 0-1.2-.2-1.7-.5v.1c0 2 1.5 3.6 3.3 4-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3a8.1 8.1 0 0 1-5 1.7H3a11.5 11.5 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.4-1.3 2-2.1z"/></svg></a></div>
+      </article>
+
+      <!-- 7 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member7.jpg" alt="Ravi Singh"></div>
+        <div class="name">Ravi Singh</div>
+        <div class="role">QA Engineer</div>
+        <p class="bio">Breaks things early so users never notice.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1C16.6 1 15.3 1 14 1c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a></div>
+      </article>
+
+      <!-- 8 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member8.jpg" alt="Shalini Patel"></div>
+        <div class="name">Shalini Patel</div>
+        <div class="role">Marketing Head</div>
+        <p class="bio">Storytelling, campaigns, and brand lift wizardry.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5c3 0 3.4 0 4.6.1 1.1.1 1.9.2 2.7.6.8.3 1.5.8 2.1 1.4.6.6 1.1 1.3 1.4 2.1.4.8.5 1.6.6 2.7.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.9-.6 2.7a5.8 5.8 0 0 1-3.5 3.5c-.8.4-1.6.5-2.7.6-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.9-.2-2.7-.6A5.8 5.8 0 0 1 1.9 20c-.4-.8-.5-1.6-.6-2.7C1.2 16.1 1.2 15.7 1.2 12s0-3.4.1-4.6c.1-1.1.2-1.9.6-2.7.3-.8.8-1.5 1.4-2.1C4 1.9 4.7 1.4 5.5 1.1c.8-.4 1.6-.5 2.7-.6C9.4 0 9.8 0 12 0z"/></svg></a></div>
+      </article>
+
+      <!-- 9 -->
+      <article class="member">
+        <div class="avatar"><img src="images/member9.jpg" alt="Arjun Das"></div>
+        <div class="name">Arjun Das</div>
+        <div class="role">HR Manager</div>
+        <p class="bio">Builds culture, drives talent growth, and care.</p>
+        <div class="social"><a href="#"><svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1A4 4 0 0 0 12 8.6c0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.6 0-1.2-.2-1.7-.5v.1c0 2 1.5 3.6 3.3 4-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3a8.1 8.1 0 0 1-5 1.7H3a11.5 11.5 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.4-1.3 2-2.1z"/></svg></a></div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
