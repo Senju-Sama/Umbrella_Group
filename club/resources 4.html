@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Pathfinders</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* Reset & Base */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f1220;
+    color: #eaeaf2;
+    overflow-x: hidden;
+  }
+
+  /* Canvas for stars behind everything */
+  #starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+  }
+
+  section {
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  h2, h3 {
+    color: #f9a826;
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Card / Box styling with rotating glow */
+  .box {
+    position: relative;
+    background: #161a2a;
+    border-radius: 14px;
+    padding: 18px;
+    transition: all 0.3s ease;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  /* Rotating Glow Effect */
+  .box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      #f9a826,
+      transparent,
+      #f9a826,
+      transparent
+    );
+    animation: rotateGlow 4s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes rotateGlow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Glow Mask so only borders glow */
+  .box::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: #161a2a;
+    border-radius: 12px;
+    z-index: 1;
+  }
+
+  /* Hover effect */
+  .box:hover {
+    transform: translateY(-5px);
+  }
+
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  /* Social Media */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .social-icons a {
+    color: #eaeaf2;
+    font-size: 1.8rem;
+    transition: 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #f9a826;
+    transform: scale(1.2);
+  }
+
+  /* FAQ */
+  .faq-item {
+    background: #161a2a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #f9a826;
+    box-shadow: 0 0 15px rgba(249, 168, 38, 0.4);
+  }
+
+  .faq-answer {
+    display: none;
+    margin-top: 8px;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body>
+
+<!-- Star Background -->
+<canvas id="starCanvas"></canvas>
+
+<!-- Introduction -->
+<section class="fade-in">
+  <div style="text-align:center; margin-bottom:28px;">
+    <h2>About Pathfinders</h2>
+    <p> • Tech • Think • Talk</p>
+  </div>
+
+  <div style="text-align:center; max-width:900px; margin:0 auto 34px; line-height:1.75; font-size:1.08rem;">
+    <p>Welcome to <strong style="color:#f9a826;">The Pathfinders</strong> — a community where curiosity meets code and creativity.</p>
+    <p>We’re not just about coding; we’re about <em>thinking, expressing, and growing together</em>. From workshops, hackathons, and coding challenges to storytelling and personality development, we believe in learning by doing, sharing knowledge, and inspiring one another.</p>
+  </div>
+</section>
+
+<!-- Key Milestones -->
+<section class="fade-in">
+  <h3>Key Milestones & Detailed Thought</h3>
+  <div class="grid">
+    <div class="box">
+      <h4>🚀 Founded</h4>
+      <p>Started in 2025 with a vision to blend coding, creativity, and communication.</p>
+    </div>
+    <div class="box">
+      <h4>🏆 Achievements</h4>
+      <p>Hosted 10+ coding challenges, 5 hackathons, and 3 public speaking events in our first year.</p>
+    </div>
+    <div class="box">
+      <h4>💡 Philosophy</h4>
+      <p>Learn. Share. Inspire. We believe in a hands-on, collaborative approach to skill-building.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Detailed Description -->
+<section class="fade-in">
+  <h3>Detailed Description</h3>
+  <div class="grid">
+    <div class="box">
+      <h4>💻 Code Arena</h4>
+      <p>A space for coding enthusiasts to practice, collaborate, and innovate. We operate through weekly coding sessions, project sprints, and mentorship programs.</p>
+    </div>
+    <div class="box">
+      <h4>📖 Storytelling</h4>
+      <p>Transform ideas into powerful narratives through speaking sessions, demos, and creative showcases that inspire others.</p>
+    </div>
+    <div class="box">
+      <h4>🌱 Personality Development</h4>
+      <p>Boost confidence and leadership with workshops, peer mentoring, and real-world communication practice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="fade-in">
+  <h3>FAQ</h3>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>Who can join The Pathfinders?</strong>
+    <div class="faq-answer">Any student with a passion for coding, creativity, or communication can join us.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>Do I need prior experience?</strong>
+    <div class="faq-answer">Not at all! We welcome beginners and experts alike.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>Are events free?</strong>
+    <div class="faq-answer">Most events are free for our members; some special workshops may have minimal fees.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>How often do you meet?</strong>
+    <div class="faq-answer">We meet every weekend for interactive sessions and project collaborations.</div>
+  </div>
+</section>
+
+<!-- Social Media -->
+<section class="fade-in" style="text-align:center;">
+  <h3>Connect with Us</h3>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+</section>
+
+<script>
+  function toggleFAQ(element) {
+    const answer = element.querySelector('.faq-answer');
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+  }
+
+  // Falling stars animation
+  const canvas = document.getElementById("starCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let stars = [];
+  let w, h;
+
+  function initStars() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2,
+        speed: Math.random() * 2 + 0.5
+      });
+    }
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = "#fff";
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function updateStars() {
+    stars.forEach(star => {
+      star.y += star.speed;
+      if (star.y > h) {
+        star.x = Math.random() * w;
+        star.y = 0;
+      }
+    });
+  }
+
+  function animate() {
+    drawStars();
+    updateStars();
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("resize", initStars);
+  initStars();
+  animate();
+</script>
+
+</body>
+</html>
