@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Pathfinders — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --bg:#1E1E2F; /* Dark Navy */
+      --card:#2D2D44; /* Dark Gray */
+      --muted:#A9A9B3; /* Gray */
+      --accent:#FCA311; /* Orange */
+      --code-text:#E5E5E5; /* Light Gray */
+      --radius: 12px;
+      --nav-height:72px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, sans-serif;
+      background: var(--bg);
+      color:var(--code-text);
+      line-height:1.45;
+    }
+   header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+  z-index: 40;
+
+  /* Glassmorphism background */
+  background: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:54px; height:54px; border-radius:8px; background:var(--accent); display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:18px;}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a {
+        display: inline-block;        /* needed for transform */
+        padding: 8px 14px;
+        font-size: 16px;              /* base font size */
+        transition: transform 0.3s ease, font-size 0.3s ease;
+        transform-origin: top center; /* pivot point at top center for swing */  
+        color:var(--code-text); 
+        text-decoration:none;
+    }
+    nav a:hover {
+        font-weight: bold;
+        color:var(--accent); 
+        font-size: 20px;              /* bigger font size on hover */
+        transform: translateY(8px) rotate(-6deg);
+        /* Slight downward move and a little tilt for swing effect */
+        }
+          nav a.active{
+        font-weight: bold;
+        color:var(--accent); 
+        font-size: 22px;        
+        }
+
+    main{padding-top:calc(var(--nav-height) + 18px); width:100%; max-width:1200px; margin:0 auto}
+
+    /* HERO */
+ 
+
+  .hero {
+    display: flex;
+    align-items: center; /* vertical center alignment */
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+    height: 50vh; /* half screen height */
+    box-sizing: border-box;
+  }
+
+  /* Code writer styles */
+  .code-window {
+    font-family: 'Consolas', 'Courier New', monospace;
+    white-space: pre;
+    padding: 15px;
+    border-radius: 8px;
+    /* background: var(--card); */
+    /* box-shadow: 0 0 15px rgba(0,0,0,0.3); */
+    font-size: 16px;
+    line-height: 1.4em;
+    min-height: 150px;
+    flex: 1;
+  }
+
+  /* VS Code Dark+ Syntax Colors */
+  .keyword { color: #569cd6; }
+  .string  { color: #ce9178; }
+  .number  { color: #b5cea8; }
+  .function { color: #dcdcaa; }
+  .type { color: #4ec9b0; }
+  .property { color: #9cdcfe; }
+  .comment { color: #6a9955; font-style: italic; }
+
+  /* Club text styles */
+  .hero-left {
+    flex: 1;
+    text-align: right;
+  }
+  .club-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin: 0;
+  }
+  .club-sub {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-top: 10px;
+    font-weight: bold;
+  overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #000;
+    font-family: monospace;
+    font-size: 1.5rem;
+    width: auto;
+    animation: typing 5s steps(20, end) infinite, blink 0.7s step-end infinite;
+    letter-spacing: 0;
+}
+
+@keyframes typing {
+    0% {
+        width: 0
+    }
+
+    50% {
+        width: 100%
+    }
+
+    100% {
+        width: 0
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: black
+    }
+}
+
+          /* Description start  */
+    .desc {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.desc-column {
+  max-width: 600px;
+}
+
+.upper-box {
+  margin-bottom: 15px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  
+}
+
+.icon-box svg {
+  width: 40px;
+  height: 40px;
+}
+
+.lower-box {
+  font-size: 1rem;
+  color: var(--code-text);
+  line-height: 1.5;
+}
+/* Description ends */
+ 
+
+
+    
+    /* Image panel */
+  .about-carousel {
+    margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background: var(--card);
+  border-radius: 15px;
+}
+
+.carousel-container {
+  max-width: 1200px;  /* container shows 3 images */
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carousel-track img {
+  width: 400px;  /* 900px / 3 - gaps */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track img.active {
+  transform: scale(1.08);
+  z-index: 1;
+}/* Image panel end */
+
+/* Text-slider stylings */
+
+    .card-carousel {
+  margin: 50px;
+  position: relative;
+   display: flex;
+   align-items: center;  
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 50px;
+}
+
+.card-strip {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.text-card {
+  flex: 0 0 80%;
+  box-sizing: border-box;
+  padding: 25px;
+  background: var(--bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px var(--accent);
+  text-align: center;
+  transform: scale(0.95);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.text-card p {
+  font-size: 1rem;
+  color: var(--code-text);
+}
+
+.text-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px var(--accent);
+}
+
+.arrow-btn {
+  background-color: var(--card);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.arrow-btn:hover {
+  background-color: #555;
+}
+
+.left-arrow {
+  margin-right: 10px;
+}
+
+.right-arrow {
+  margin-left: 10px;
+}
+/* Text-sliders ends */
+    .notice-wrap{margin:50px;padding:18px; max-width: 1100px;background:var(--card); border-radius:12px}
+    .notice-title{font-weight:700; margin-bottom:10px; color:var(--code-text)}
+    .notice-box{height:140px; overflow:hidden; position:relative}
+    .notices{position:absolute; bottom:-100%; left:0; right:0; display:flex; flex-direction:column; gap:8px; animation:scrollUp 12s linear infinite}
+    .notice-item{padding:10px 12px; border-radius:8px; color:var(--accent); font-weight:600; background:rgba(255,255,255,0.02)}
+    @keyframes scrollUp{0%{transform:translateY(100%)}100%{transform:translateY(-100%)}}
+
+   
+    @media (max-width:900px){
+      .hero{flex-direction:column; align-items:flex-start}
+      .sketches{width:100%}
+      .media-wrap{flex-direction:column}
+      .side-column{width:100%}
+    }
+    
+    
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">TP</div>
+    </div>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#resources">Resources</a>
+      <a href="#notice">Notice</a>
+      <a href="#members">Members</a>
+      <a href="#reach">Reach Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="home">
+    <div class="code-window" aria-live="polite" id="code-writer"></div>
+
+    <div class="hero-left">
+      <h1 class="club-title">The Pathfinders</h1>
+      <p class="club-sub">Tech, Think, Talk</p>
+    </div>
+  </div>
+     
+     <!--  Description -->
+       <div class="desc">
+  <div class="desc-column">
+    <!-- Upper: Icons -->
+    <div class="upper-box">
+      <div class="icons">
+        <div class="icon-box" title="Laptop">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="10" rx="1.5" stroke="#ccc" stroke-width="1.5" fill="none"/>
+            <rect x="1" y="17" width="22" height="2" rx="1" fill="#333"/>
+          </svg>
+        </div>
+        <div class="icon-box" title="Microphone">
+          <svg viewBox="0 0 24 24">
+            <rect x="9" y="2" width="6" height="11" rx="3" stroke="#ccc" stroke-width="1.5" fill="none"/>
+            <path d="M12 15v3" stroke="#ccc" stroke-width="1.5"/>
+            <path d="M8 20h8" stroke="#333" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="icon-box" title="Coffee">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 8h10v6a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8z" stroke="#ccc" stroke-width="1.5" fill="none"/>
+            <path d="M16 8h2a2 2 0 1 1 0 4h-2" stroke="#ccc" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="icon-box" title="Books">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="6.5" height="14" rx="0.8" stroke="#ccc" stroke-width="1.5" fill="none"/>
+            <rect x="14" y="4" width="7" height="14" rx="0.8" stroke="#ccc" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lower: Description -->
+    <div class="lower-box">
+      <p>
+        We are The Pathfinders — a college club that builds curiosity, shares practical tech skills, and creates a community for problem solvers.
+        <span id="extra" style="display:none">
+          We run workshops, hack nights, coding challenges and guest talks, and mentor juniors. Join us to learn by doing and build projects that matter.
+          <a href="#" id="readLessLink" style="color:var(--accent); text-decoration:none;">Read less</a>
+        </span>
+        <a href="#" id="readMoreLink" style="color:var(--accent); text-decoration:none;">Read more</a>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- Desc end -->
+
+    <section class="about-carousel">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <img src="./Images/m5.jpg" alt="">
+      <img src="./Images/m1.jpg" alt="">
+      <img src="./Images/m2.jpg" alt="">
+      <img src="./Images/m3.jpg" alt="">
+      <img src="./Images/m4.jpg" alt="">
+    </div>
+  </div>
+</section>
+    <section>
+        <!-- ===== TEXT CARD CAROUSEL ===== -->
+      <div class="card-carousel">
+        <button class="arrow-btn left-arrow">&#10094;</button>
+
+        <div class="card-strip">
+         <div class="text-card">
+           <h3>CodeArena</h3>
+            <p>CodeArena is a collaborative hub for coders, creators, and innovators. 
+              Whether you’re a beginner exploring your first “Hello World!” or a 
+              seasoned developer building complex systems, CodeArena is your 
+              space to learn, create, and grow.</p>
+              
+              <p>We bring together curious minds to solve 
+                real-world challenges, share knowledge, and level up their skills through:</p>
+            <ul>
+              <li>Live Coding Sessions – Work alongside others in real time.</li>
+              <li>Coding Challenges & Hackathons – Test your skills and push your limits.</li>
+              <li>Knowledge Sharing – Learn through workshops, tutorials, and peer feedback.</li>
+              <li>Community Support – Get help, share ideas, and build projects together.</li>
+            </ul>
+            <p>Here, coding isn’t just about syntax—it’s about innovation, collaboration, and making an impact.</p>
+            <strong>Step into the CodeArena. Build. Learn. Compete.</strong>    
+          </div>
+       <div class="text-card">
+          <h3>Tale-Tellers</h3>
+          <p>Tale-Tellers is a creative space for storytellers, writers, and dreamers 
+            to bring their ideas to life. Whether you weave worlds through words, 
+            paint vivid scenes in the mind, or inspire through spoken narratives, 
+            this is where your imagination takes center stage.</p>
+            <p>We celebrate the art of storytelling through:</p>
+            <ul>
+              <li>Story Sharing – Exchange tales that inspire, entertain, and connect.</li>
+              <li>Writing Workshops – Learn the craft, from structure to style.</li>
+              <li>Open Mic & Read-Alouds – Give your stories a voice and feel the audience’s response.</li>
+              <li>Creative Collaborations – Work with fellow writers, poets, and artists to create something magical.</li>
+            </ul>
+            <p>At Tale-Tellers, every voice matters, every idea counts, and every story deserves to be heard.</p>
+            <strong>Step into the circle. Share your story. Inspire the world.</strong>
+       </div>
+       <div class="text-card">
+         <h3>Persona</h3>
+        <p>Persona is a space dedicated to personal growth, skill-building, and self-expression. 
+          Whether you’re aiming to boost your confidence, refine your communication, or explore new talents, 
+          Persona helps you shape the version of yourself you’ve always envisioned.</p>
+      </div>
+      </div>
+      <button class="arrow-btn right-arrow">&#10095;</button>
+     </div>
+
+        
+        <div class="notice-wrap" id="notice">
+          <div class="notice-title">NOTICE</div>
+          <div class="notice-box">
+            <div class="notices">
+              <div class="notice-item">Orientation meetup — Aug 12</div>
+              <div class="notice-item">CodeArena registration open</div>
+              <div class="notice-item">Workshop: Intro to Web — Aug 20</div>
+              <div class="notice-item">Project demo submission deadline</div>
+              <div class="notice-item">Guest talk: AI in daily life</div>
+            </div>
+          </div>
+        </div>
+    
+    </section>
+  </main>
+  <!-- Add this in your <head> for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Footer Section -->
+<footer style="background:var(--card); color:#fff; padding:20px 10px; text-align:center; font-family:sans-serif;">
+  
+  <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; flex-wrap:wrap;">
+
+    <!-- Left: Location -->
+    <div style="flex:1; text-align:left; min-width:200px;">
+      <i class="fas fa-map-marker-alt"></i> Main Campus
+    </div>
+
+    <!-- Center: Social Icons -->
+    <div style="flex:1; text-align:center; min-width:200px;">
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-linkedin"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:example@email.com" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fas fa-envelope"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Right: Copyright -->
+    <div style="flex:1; text-align:right; min-width:200px;">
+      © The Pathfinders
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const readMoreLink = document.getElementById('readMoreLink');
+    const readLessLink = document.getElementById('readLessLink');
+    const extra = document.getElementById('extra');
+    readMoreLink.addEventListener('click', (e) => {e.preventDefault(); extra.style.display = 'inline'; readMoreLink.style.display = 'none';});
+    readLessLink.addEventListener('click', (e) => {e.preventDefault(); extra.style.display = 'none'; readMoreLink.style.display = 'inline';});
+
+  // Img Panel start
+  const track = document.querySelector('.carousel-track');
+  let images = Array.from(track.children);
+  let index = 0;
+  let autoSlide;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(${-index * (290 + 15)}px)`;
+
+    images.forEach(img => img.classList.remove('active'));
+
+    // Highlight middle image
+    let middleIndex = index + 1;
+    if (middleIndex >= images.length) {
+      middleIndex = middleIndex % images.length;
+    }
+    images[middleIndex].classList.add('active');
+  }
+
+  function moveNext() {
+    index = (index + 1) % images.length;
+    updateCarousel();
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(moveNext, 2000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlide);
+  }
+
+  // Duplicate images for smooth looping
+  track.innerHTML += track.innerHTML;
+  images = Array.from(track.children);
+
+  startAutoSlide();
+  updateCarousel();
+
+  // Pause on hover
+  document.querySelector('.carousel-container').addEventListener('mouseenter', stopAutoSlide);
+  document.querySelector('.carousel-container').addEventListener('mouseleave', startAutoSlide);
+
+// Inmg Panel end
+
+// Text slider
+const strip = document.querySelector(".card-strip");
+let cardList = Array.from(strip.children);
+let currentSlide = 0;
+let slideTimer;
+
+// Duplicate cards for smooth infinite loop
+strip.innerHTML += strip.innerHTML;
+cardList = Array.from(strip.children);
+
+function refreshCarousel() {
+  const cardWidth = cardList[0].offsetWidth;
+  strip.style.transform = `translateX(${-currentSlide * cardWidth}px)`;
+
+  cardList.forEach(card => card.classList.remove("active"));
+  let activeIndex = currentSlide % cardList.length;
+  cardList[activeIndex].classList.add("active");
+}
+
+function goForward() {
+  currentSlide++;
+  if (currentSlide >= cardList.length / 2) {
+    currentSlide = 0;
+    strip.style.transition = "none";
+    refreshCarousel();
+    strip.offsetHeight; // reflow
+    strip.style.transition = "transform 0.5s ease-in-out";
+  }
+  refreshCarousel();
+}
+
+function goBackward() {
+  currentSlide--;
+  if (currentSlide < 0) {
+    currentSlide = cardList.length / 2 - 1;
+    strip.style.transition = "none";
+    refreshCarousel();
+    strip.offsetHeight;
+    strip.style.transition = "transform 0.5s ease-in-out";
+  }
+  refreshCarousel();
+}
+
+function beginAutoPlay() {
+  slideTimer = setInterval(goForward, 3000);
+}
+
+function stopAutoPlay() {
+  clearInterval(slideTimer);
+}
+
+document.querySelector(".right-arrow").addEventListener("click", () => {
+  goForward();
+  stopAutoPlay();
+  beginAutoPlay();
+});
+
+document.querySelector(".left-arrow").addEventListener("click", () => {
+  goBackward();
+  stopAutoPlay();
+  beginAutoPlay();
+});
+
+document.querySelector(".card-carousel").addEventListener("mouseenter", stopAutoPlay);
+document.querySelector(".card-carousel").addEventListener("mouseleave", beginAutoPlay);
+
+refreshCarousel();
+beginAutoPlay();
+// Text sliders end
+
+// Code-writer start
+const lines = [
+  `<span class="comment">// C++ Greeting</span>\n<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>\n<span class="keyword">int</span> <span class="function">main</span>() {\n    std::<span class="property">cout</span> &lt;&lt; <span class="string">"Hello from C++!"</span> &lt;&lt; std::<span class="property">endl</span>;\n    <span class="keyword">return</span> 0;\n}`,
+  `<span class="comment"># Python Greeting</span>\n<span class="keyword">def</span> <span class="function">greet</span>():\n    <span class="property">print</span>(<span class="string">"Hello from Python!"</span>)\n\ngreet()`,
+  `<span class="comment">// Java Greeting</span>\n<span class="keyword">public class</span> <span class="type">Main</span> {\n    <span class="keyword">public static void</span> <span class="function">main</span>(String[] args) {\n        System.<span class="property">out</span>.<span class="property">println</span>(<span class="string">"Hello from Java!"</span>);\n    }\n}`,
+  `<span class="comment">// JavaScript Greeting</span>\n<span class="keyword">function</span> <span class="function">greet</span>() {\n    <span class="property">console</span>.<span class="property">log</span>(<span class="string">"Hello from JavaScript!"</span>);\n}\n\ngreet();`
+];
+
+let currentLine = 0;
+let writer = document.getElementById('code-writer');
+
+function typeLine(line, callback) {
+  writer.innerHTML = "";
+  let i = 0;
+  let interval = setInterval(() => {
+    writer.innerHTML = line.slice(0, i++);
+    if (i > line.length) {
+      clearInterval(interval);
+      if (callback) callback();
+    }
+  }, 20);
+}
+
+function showNextLine() {
+  typeLine(lines[currentLine], () => {
+    currentLine = (currentLine + 1) % lines.length;
+    setTimeout(showNextLine, 3000);
+  });
+}
+
+showNextLine();
+// Code-writer end
+    // Respect reduced motion
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.getElementById('cursor').style.animation='none';
+    }
+  </script>
+</body>
+</html>

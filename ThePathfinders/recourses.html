@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources - The Pathfinders</title>
+  <style>
+    body {
+      background-color: #1E1E2F;
+      color: #E5E5E5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    } :root{
+      --bg:#1E1E2F; /* Dark Navy */
+      --card:#2D2D44; /* Dark Gray */
+      --muted:#A9A9B3; /* Gray */
+      --accent:#FCA311; /* Orange */
+      --code-text:#E5E5E5; /* Light Gray */
+      --radius: 12px;
+      --nav-height:72px;
+    }
+    *{box-sizing:border-box}
+   
+   header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+  z-index: 40;
+
+  /* Glassmorphism background */
+  background: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:54px; height:54px; border-radius:8px; background:var(--accent); display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:18px;}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a {
+        display: inline-block;        /* needed for transform */
+        padding: 8px 14px;
+        font-size: 16px;              /* base font size */
+        transition: transform 0.3s ease, font-size 0.3s ease;
+        transform-origin: top center; /* pivot point at top center for swing */  
+        color:var(--code-text); 
+        text-decoration:none;
+    }
+    nav a:hover {
+        font-weight: bold;
+        color:var(--accent); 
+        font-size: 20px;              /* bigger font size on hover */
+        transform: translateY(8px) rotate(-6deg);
+        /* Slight downward move and a little tilt for swing effect */
+        }  nav a.active{
+        font-weight: bold;
+        color:var(--accent); 
+        font-size: 22px;        
+        }
+    
+
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .page-title h1 {
+      font-size: 2rem;
+      color: #FCA311;
+      text-shadow: 0 0 15px #FCA311;
+      animation: glowPulse 2s infinite alternate;
+    }
+    .page-title p {
+      max-width: 600px;
+      margin: auto;
+      color: #ccc;
+    }
+
+    /* Glow animation */
+    @keyframes glowPulse {
+      from { text-shadow: 0 0 10px #FCA311; }
+      to { text-shadow: 0 0 20px #FCA311, 0 0 30px #FCA311; }
+    }
+
+    /* Search Bar */
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 60%;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 10px rgba(252, 163, 17, 0.5);
+      transition: 0.3s;
+    }
+    .search-bar input:focus {
+      box-shadow: 0 0 20px rgba(252, 163, 17, 0.9);
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.5rem;
+      color: #FCA311;
+      margin: 20px 40px 10px;
+      text-shadow: 0 0 10px #FCA311;
+    }
+
+    /* Resource Cards */
+    .resources-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px 40px;
+    }
+    .card {
+      background-color: #2D2D44;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px #FCA311;
+    }
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .card h3 {
+      color: #FCA311;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    .tag {
+      background-color: #FCA311;
+      color: #1E1E2F;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px #FCA311;
+    }
+    .btn {
+      background-color: #FCA311;
+      color: #1E1E2F;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px #FCA311;
+      transition: 0.3s;
+      animation: buttonGlow 2s infinite alternate;
+    }
+    .btn:hover {
+      background-color: #e5920d;
+      box-shadow: 0 0 20px #FCA311, 0 0 40px #FCA311;
+    }
+    @keyframes buttonGlow {
+      from { box-shadow: 0 0 8px #FCA311; }
+      to { box-shadow: 0 0 20px #FCA311, 0 0 30px #FCA311; }
+    }
+
+ 
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">TP</div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#resources" class="active">Resources</a>
+      <a href="#notice">Notice</a>
+      <a href="#members">Members</a>
+      <a href="#reach">Reach Us</a>
+    </nav>
+  </header>
+
+  <!-- Page Title -->
+  <section class="page-title">
+    <h1>Resources</h1>
+    <p>Explore resources from our three divisions — CodeArena, Persona, and Tale Teller. Search to find exactly what you need.</p>
+  </section>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search resources..." onkeyup="searchResources()">
+  </div>
+
+  <!-- CodeArena Section -->
+  <h2 class="section-title">CodeArena</h2>
+  <div class="resources-container">
+    <div class="card" data-keywords="html css basics codearena">
+      <span class="tag">HTML & CSS</span>
+      <h3>HTML & CSS Basics</h3>
+      <p>Learn the building blocks of web design with beginner-friendly HTML and CSS guides.</p>
+      <a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank" class="btn">View</a>
+    </div>
+
+    <div class="card" data-keywords="ai ml codearena">
+      <span class="tag">AI & ML</span>
+      <h3>Machine Learning with Python</h3>
+      <p>Step-by-step tutorials to get started with ML algorithms and Python libraries.</p>
+      <a href="https://scikit-learn.org/stable/tutorial/" target="_blank" class="btn">View</a>
+    </div>
+
+    <div class="card" data-keywords="dsa competitive programming codearena">
+      <span class="tag">DSA</span>
+      <h3>DSA Practice Problems</h3>
+      <p>Sharpen your problem-solving skills with curated coding challenges.</p>
+      <a href="https://leetcode.com/" target="_blank" class="btn">View</a>
+    </div>
+  </div>
+
+  <!-- Persona Section -->
+  <h2 class="section-title">Persona</h2>
+  <div class="resources-container">
+    <div class="card" data-keywords="communication skills public speaking persona">
+      <span class="tag">Soft Skills</span>
+      <h3>Public Speaking Tips</h3>
+      <p>Boost your confidence and speak effectively in front of an audience.</p>
+      <a href="https://www.toastmasters.org/resources/public-speaking-tips" target="_blank" class="btn">View</a>
+    </div>
+
+    <div class="card" data-keywords="leadership teamwork persona">
+      <span class="tag">Leadership</span>
+      <h3>Leadership Development</h3>
+      <p>Learn to lead teams and projects with these proven strategies.</p>
+      <a href="https://www.mindtools.com/pages/main/newMN_LDR.htm" target="_blank" class="btn">View</a>
+    </div>
+  </div>
+
+  <!-- Tale Teller Section -->
+  <h2 class="section-title">Tale Teller</h2>
+  <div class="resources-container">
+    <div class="card" data-keywords="storytelling writing tale teller">
+      <span class="tag">Storytelling</span>
+      <h3>Mastering Storytelling</h3>
+      <p>Learn how to create engaging stories that capture attention.</p>
+      <a href="https://www.masterclass.com/articles/storytelling-tips" target="_blank" class="btn">View</a>
+    </div>
+
+    <div class="card" data-keywords="creative writing tale teller">
+      <span class="tag">Writing</span>
+      <h3>Creative Writing Exercises</h3>
+      <p>Practice your creativity with writing prompts and exercises.</p>
+      <a href="https://blog.reedsy.com/creative-writing-prompts/" target="_blank" class="btn">View</a>
+    </div>
+  </div>
+
+  <!-- Add this in your <head> for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Footer Section -->
+<footer style="background:#2D2D44; color:#fff; padding:20px 10px; text-align:center; font-family:sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; flex-wrap:wrap;">
+
+    <!-- Left: Location -->
+    <div style="flex:1; text-align:left; min-width:200px;">
+      <i class="fas fa-map-marker-alt"></i> Main Campus
+    </div>
+
+    <!-- Center: Social Icons -->
+    <div style="flex:1; text-align:center; min-width:200px;">
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-linkedin"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:example@email.com" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fas fa-envelope"></i></a>
+      <a href="#" style="color:#fff; margin:0 10px; font-size:20px;"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Right: Copyright -->
+    <div style="flex:1; text-align:right; min-width:200px;">
+      © The Pathfinders
+    </div>
+  </div>
+</footer>
+
+  <!-- Search Function -->
+  <script>
+    function searchResources() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.getElementsByClassName('card');
+
+      for (let i = 0; i < cards.length; i++) {
+        let keywords = cards[i].getAttribute('data-keywords');
+        if (keywords.toLowerCase().includes(input)) {
+          cards[i].style.display = "block";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html
