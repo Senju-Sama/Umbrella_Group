@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Animation</title>
+  <style>
+    body {
+      background: #0d0620;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .typing {
+      color: orange;
+      border-right: 3px solid orange; /* blinking cursor */
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Web and Coding Club</h1>
+  <h1 class="typing"></h1>
+
+  <script>
+    const texts = [
+      "Coders To _",
+      "Turning Caffeine into Code",
+      "Building Future Developers",
+      "Learn • Build • Share"
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+
+    function type() {
+      if (count === texts.length) {
+        count = 0;
+      }
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+
+      document.querySelector('.typing').textContent = letter;
+
+      if (letter.length === currentText.length) {
+        setTimeout(() => {
+          index = 0;
+          count++;
+          type();
+        }, 1500); // pause before deleting/next word
+      } else {
+        setTimeout(type, 100);
+      }
+    }
+
+    type();
+  </script>
+
+</body>
+</html>
